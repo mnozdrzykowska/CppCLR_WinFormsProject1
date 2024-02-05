@@ -44,6 +44,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label2;
 	public: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::RadioButton^ radioButton3;
+	private: System::Windows::Forms::RadioButton^ radioButton4;
 
 	private:
 		/// <summary>
@@ -67,6 +69,8 @@ namespace CppCLRWinFormsProject {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -149,11 +153,33 @@ namespace CppCLRWinFormsProject {
 			this->label3->TabIndex = 8;
 			this->label3->Text = L"Wynik";
 			// 
+			// radioButton3
+			// 
+			this->radioButton3->AutoSize = true;
+			this->radioButton3->Location = System::Drawing::Point(276, 144);
+			this->radioButton3->Name = L"radioButton3";
+			this->radioButton3->Size = System::Drawing::Size(126, 24);
+			this->radioButton3->TabIndex = 9;
+			this->radioButton3->Text = L"Odejmowanie";
+			this->radioButton3->UseVisualStyleBackColor = true;
+			// 
+			// radioButton4
+			// 
+			this->radioButton4->AutoSize = true;
+			this->radioButton4->Location = System::Drawing::Point(276, 174);
+			this->radioButton4->Name = L"radioButton4";
+			this->radioButton4->Size = System::Drawing::Size(95, 24);
+			this->radioButton4->TabIndex = 10;
+			this->radioButton4->Text = L"Dzielenie";
+			this->radioButton4->UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(677, 514);
+			this->Controls->Add(this->radioButton4);
+			this->Controls->Add(this->radioButton3);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->label2);
@@ -180,6 +206,15 @@ namespace CppCLRWinFormsProject {
 		}
 		if (radioButton2->Checked == true) {
 			wynik = liczba1 * liczba2;
+		}
+		if (radioButton3->Checked == true) {
+			wynik = liczba1 - liczba2;
+		}
+		if (radioButton4->Checked == true) {
+			if (liczba2 != 0)
+				wynik = liczba1 / liczba2;
+			else
+				MessageBox::Show("Nie dzieli siê przez 0!");
 		}
 		textBox3->Text = System::Convert::ToString(wynik);
 	}
